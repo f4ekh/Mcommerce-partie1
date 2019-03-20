@@ -112,5 +112,9 @@ public class ProductController {
             .collect(Collectors.toMap(produit ->  produit, produit -> produit.getPrix() - produit.getPrixAchat()));
     }
 
+    @GetMapping(value = "/trierProduitsParOrdreAlphabetique")
+    public List<Product> trierProduitsParOrdreAlphabetique (){
+        return productDao.findByOrderByNomAsc();
+    }
 
 }
